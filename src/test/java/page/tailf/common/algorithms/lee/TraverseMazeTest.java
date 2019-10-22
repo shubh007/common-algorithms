@@ -30,6 +30,28 @@ public class TraverseMazeTest {
     }
 
     @Test
+    public void testMaze2() {
+        TraverseMaze traverseMaze = new TraverseMaze();
+        Integer originalMatrix[][] =
+            {{1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+            {1, 0, 1, 0, 1, 1, 1, 0, 1, 1 },
+            {1, 1, 1, 0, 1, 1, 0, 1, 0, 1 },
+            {0, 0, 0, 0, 1, 0, 0, 0, 0, 1 },
+            {1, 1, 1, 0, 1, 1, 1, 0, 1, 0 },
+            {1, 0, 1, 1, 1, 1, 0, 1, 0, 0 },
+            {1, 0, 0, 0, 0, 0, 0, 0, 0, 1 },
+            {1, 0, 1, 1, 1, 1, 0, 1, 1, 1 },
+            {1, 1, 0, 0, 0, 0, 1, 0, 0, 1 }};
+        Integer noOfRows = 9;
+        Integer noOfColumns =10;
+        Node initNode = new Node(0, 0);
+        Node targetNode = new Node(3, 4);
+        Result result = traverseMaze.search(originalMatrix,noOfRows,noOfColumns,initNode,targetNode);
+        Assert.assertEquals(true,result.getPathAvilable());
+        Assert.assertEquals(11,result.getDistance());
+    }
+
+    @Test
     public void testKnight(){
         KnightRider knightRider =new KnightRider();
         Integer originalMatrix[][] ={
